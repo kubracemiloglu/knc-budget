@@ -1,36 +1,102 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# KNC Budget
+
+KNC Budget is a responsive budget and savings goal tracking application. It helps users track their income, expenses, spending limits, scheduled income and progress toward a financial goal.
+
+All data is stored locally in the user’s browser. The application does not require an account or a backend service.
+
+## Screenshots
+
+### Dashboard
+
+![KNC Budget dashboard](docs/images/dashboard.png)
+
+### Transactions
+
+![Income and expense tracking](docs/images/transactions.png)
+
+### Mobile View
+
+![KNC Budget mobile interface](docs/images/mobile.png)
+
+## Features
+
+* Starting balance and current balance calculation
+* Income and expense tracking
+* Custom transaction categories and notes
+* Quick transaction entry
+* Savings goal creation and contribution tracking
+* Goal progress percentage and remaining amount calculation
+* Estimated completion time based on recent contributions
+* Daily and weekly spending limits
+* Visual warnings when spending limits are exceeded
+* Scheduled income tracking
+* Automatic transaction creation when scheduled income is received
+* Monthly income and expense summaries
+* Seven-day expense visualization
+* Monthly category-based expense overview
+* Filtering by transaction type, category and date
+* Search by category or transaction note
+* Responsive mobile and desktop interface
+* Installable web application experience through a web app manifest
+* Browser-based data persistence with localStorage
+
+## Technology Stack
+
+| Area         | Technologies         |
+| ------------ | -------------------- |
+| Framework    | Next.js 16           |
+| Language     | TypeScript           |
+| Interface    | React 19             |
+| Styling      | Tailwind CSS 4       |
+| Data Storage | Browser localStorage |
+| Deployment   | Vercel-compatible    |
+
+## Data and Privacy
+
+KNC Budget does not use an external database, user account or authentication system. Financial records remain in the browser in which they were entered.
+
+Because the data is stored locally:
+
+* Data is not synchronized between devices.
+* Clearing browser data may remove saved records.
+* The application should not be treated as a replacement for professional financial software.
 
 ## Getting Started
 
-First, run the development server:
+Clone the repository:
+
+```bash
+git clone https://github.com/kubracemiloglu/knc-budget.git
+cd knc-budget
+```
+
+Install the dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000` in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Production Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Developer
 
-To learn more about Next.js, take a look at the following resources:
+**Kübra Nur Cemiloğlu**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Ege University — Computer Programming Graduate
+Junior .NET Developer
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* [GitHub](https://github.com/kubracemiloglu)
+* [LinkedIn](https://www.linkedin.com/in/kubranurcemiloglu)
