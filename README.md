@@ -4,19 +4,7 @@ KNC Budget is a responsive budget and savings goal tracking application. It help
 
 All data is stored locally in the user’s browser. The application does not require an account or a backend service.
 
-## Screenshots
 
-### Dashboard
-
-![KNC Budget dashboard](docs/images/dashboard.png)
-
-### Transactions
-
-![Income and expense tracking](docs/images/transactions.png)
-
-### Mobile View
-
-![KNC Budget mobile interface](docs/images/mobile.png)
 
 ## Features
 
