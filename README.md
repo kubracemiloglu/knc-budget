@@ -1,90 +1,42 @@
 # KNC Budget
 
-KNC Budget is a responsive budget and savings goal tracking application. It helps users track their income, expenses, spending limits, scheduled income and progress toward a financial goal.
+Gelir, gider ve birikim hedeflerini tarayıcıda takip eden mobil uyumlu web uygulaması. Hesap veya backend gerektirmez; kayıtlar localStorage içinde tutulur.
 
-All data is stored locally in the user’s browser. The application does not require an account or a backend service.
+- Başlangıç bakiyesi, gelir/gider kayıtları, kategoriler ve notlar.
+- Birikim hedefi ve ayrılan tutarlar; günlük / haftalık limitler.
+- Planlı gelirler, filtreleme ve dönemsel özet grafikler.
+- Next.js 16.3.8, React 19.2.3, TypeScript 5, Tailwind CSS 4.
 
+## Kurulum
 
+Node.js 20.9+ ve npm gerekir; kontroller Node.js 22.17.1 ile çalıştırıldı.
 
-## Features
-
-* Starting balance and current balance calculation
-* Income and expense tracking
-* Custom transaction categories and notes
-* Quick transaction entry
-* Savings goal creation and contribution tracking
-* Goal progress percentage and remaining amount calculation
-* Estimated completion time based on recent contributions
-* Daily and weekly spending limits
-* Visual warnings when spending limits are exceeded
-* Scheduled income tracking
-* Automatic transaction creation when scheduled income is received
-* Monthly income and expense summaries
-* Seven-day expense visualization
-* Monthly category-based expense overview
-* Filtering by transaction type, category and date
-* Search by category or transaction note
-* Responsive mobile and desktop interface
-* Installable web application experience through a web app manifest
-* Browser-based data persistence with localStorage
-
-## Technology Stack
-
-| Area         | Technologies         |
-| ------------ | -------------------- |
-| Framework    | Next.js 16           |
-| Language     | TypeScript           |
-| Interface    | React 19             |
-| Styling      | Tailwind CSS 4       |
-| Data Storage | Browser localStorage |
-| Deployment   | Vercel-compatible    |
-
-## Data and Privacy
-
-KNC Budget does not use an external database, user account or authentication system. Financial records remain in the browser in which they were entered.
-
-Because the data is stored locally:
-
-* Data is not synchronized between devices.
-* Clearing browser data may remove saved records.
-* The application should not be treated as a replacement for professional financial software.
-
-## Getting Started
-
-Clone the repository:
-
-```bash
+```sh
 git clone https://github.com/kubracemiloglu/knc-budget.git
 cd knc-budget
-```
-
-Install the dependencies:
-
-```bash
-npm install
-```
-
-Start the development server:
-
-```bash
-npm run dev
-```
-
-Open `http://localhost:3000` in your browser.
-
-## Production Build
-
-```bash
+npm ci
+npm run dev -- --hostname 127.0.0.1
+# http://127.0.0.1:3000
+npm run lint
 npm run build
-npm start
+npm start -- --hostname 127.0.0.1
 ```
 
-## Developer
+.env veya servis anahtarı gerekmez. İlk açılışta hedef ve başlangıç bakiyesini belirleyin; gelir/gider ekleyin. Görsellerdeki tutarlar ve notlar sentetiktir.
 
-**Kübra Nur Cemiloğlu**
+## Doğrulama ve bilinen sınırlar
 
-Ege University — Computer Programming Graduate
-Junior .NET Developer
+2026-10-05: lint ve üretim derlemesi geçti. Temiz Edge oturumunda hedef / başlangıç bakiyesi kaydetme, sentetik gelir ekleme ve sayfa yenilendikten sonra kayıtların korunması doğrulandı. 390 px genişlikte yatay taşma ve JavaScript hatası görülmedi; dış istekler engellendi. Bağımsız otomatik test paketi bulunmuyor; diğer hesaplama ve planlı gelir senaryolarının tüm kombinasyonları test edilmedi.
 
-* [GitHub](https://github.com/kubracemiloglu)
-* [LinkedIn](https://www.linkedin.com/in/kubranurcemiloglu)
+Tarayıcı verisi temizlenirse kayıtlar silinir; cihazlar arasında eşitleme, sunucu yedeği ve kullanıcı yetkilendirmesi yoktur. Finans kayıtları şifrelenmez. Manifest ve ikonlar vardır; servis çalışanı / tam çevrimdışı destek doğrulanmadı. Canlı demo bağlantısı verilmemiştir.
+
+İlk açılışta boş başlangıç durumunun saklanan kayıtları ezmesini önleyen yükleme kontrolü eklendi. Güvenlik taramasındaki Next.js bulguları için aynı ana sürümde gerekli güncelleme yapıldı; kilit dosyası güncellendi. Ayrıntılı kontrol kapsamı yayımlama raporunda bulunur.
+
+## Ekran görüntüleri
+
+![Sentetik bütçe](screenshots/sentetik-butce.png)
+![Sentetik mobil bütçe](screenshots/sentetik-butce-mobil.png)
+
+Kübra Nur Cemiloğlu · Ege Üniversitesi Bilgisayar Programcılığı mezunu.
+
+Bağımlılık kontrolü (2026-10-05): npm audit --omit=dev 0 bulgu verdi. Tam audit geliştirme araçlarının braces / micromatch / fast-glob zincirinde 5 yüksek seviye bulgu bildirdi. Önerilen zorunlu sürüm düşürme uygulanmadı; geliştirme araçlarını güvenilir yerel proje dosyalarıyla kullanın. Bu tarama tüm güvenlik risklerinin yokluğunu garanti etmez.

@@ -129,7 +129,13 @@ export default function Home() {
   const [dailyLimitInput, setDailyLimitInput] = useState("0");
   const [weeklyLimitInput, setWeeklyLimitInput] = useState("0");
 
+  const [hydrated, setHydrated] = useState(false);
+
   useEffect(() => {
+    let cancelled = false;
+    // Hydrate after mount; do not save the empty server state over browser data.
+    queueMicrotask(() => {
+    if (cancelled) return;
     const s = loadState();
     setState(s);
     setStartingBalanceInput(String(s.startingBalance ?? 0));
@@ -139,11 +145,14 @@ export default function Home() {
     }
     setDailyLimitInput(String(s.dailyLimit ?? 0));
     setWeeklyLimitInput(String(s.weeklyLimit ?? 0));
+    setHydrated(true);
+    });
+    return () => { cancelled = true; };
   }, []);
 
   useEffect(() => {
-    saveState(state);
-  }, [state]);
+    if (hydrated) saveState(state);
+  }, [state, hydrated]);
 
   const hasGoal = !!state.goal;
 
